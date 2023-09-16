@@ -1,4 +1,4 @@
-public class DetectCycleInLL {
+public class DetectLoopInLL {
     static Node head = null;
 
     public static void main(String[] args) {
