@@ -17,8 +17,25 @@ public class ReverseLinkedList {
     }
 
     private static Node reverseLinkedList(Node head) {
+        Node tempNode = null;
+        while (head != null) {
+            Node temp = head.next;
+            head.next = tempNode;
+            tempNode = head;
+            head = temp;
+        }
+        return tempNode;
+    }
+
+    /*
+    Step 1 = Making a temp node and pointing it to next of head
+    Step 2 = Pointing head's next to dummy node which was initially assigned to null
+    Step 3 = Assigning dummy node to current head
+    Step 4 = Moving head to the new temp node
+    */
+
+    /*private static Node reverseLinkedList(Node head) {
         Node curr = head, prev = null, Next = null;
-        System.out.println("check: " + curr.data);
         while (curr != null) {
             Next = curr.next;
             curr.next = prev;
@@ -26,5 +43,5 @@ public class ReverseLinkedList {
             curr = Next;
         }
         return prev;
-    }
+    }*/
 }
