@@ -19,20 +19,14 @@ public class ReverseLinkedList {
     private static Node reverseLinkedList(Node head) {
         Node tempNode = null;
         while (head != null) {
-            Node temp = head.next;
-            head.next = tempNode;
-            tempNode = head;
-            head = temp;
+            Node temp = head.next;      //Making a temp node and pointing it to next of head
+            head.next = tempNode;       //Pointing head's next to dummy node which was initially assigned to null
+            tempNode = head;            //Assigning dummy node to current head
+            head = temp;                //Moving head to the new temp node
         }
         return tempNode;
     }
 
-    /*
-    Step 1 = Making a temp node and pointing it to next of head
-    Step 2 = Pointing head's next to dummy node which was initially assigned to null
-    Step 3 = Assigning dummy node to current head
-    Step 4 = Moving head to the new temp node
-    */
 
     /*private static Node reverseLinkedList(Node head) {
         Node curr = head, prev = null, Next = null;
