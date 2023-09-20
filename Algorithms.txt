@@ -1,0 +1,105 @@
+1. Binary Search
+public class BinarySearchAlgo {
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int search = 9;
+        int lo = 0;
+        int high = arr.length - 1;
+        int mid = lo + (high - lo) / 2;         //using mid=lo+(high-lo)/2 is good to avoid Integer overflow rather than using mid=(lo+high)/2
+
+        while (lo <= mid) {
+            if (arr[mid] == search) {
+                System.out.println("element is at " + mid + " index");
+                break;
+            } else if (arr[mid] < search) {
+                lo = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+            mid = lo + (high - lo) / 2;
+        }
+        if (lo > high) {
+            System.out.println("element not found");
+        }
+    }
+}
+
+
+
+2. Bubble Sort
+private static void bubbleSort(int[] a) {
+        int temp;
+        for(int i=0; i< a.length; i++){
+            int flag=0;
+            for(int j=0; j< a.length-1; j++){
+                if(a[j]>a[j+1]){
+                    temp=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=temp;
+                    flag=1;
+                }
+            }
+            if(flag==0){
+                break;
+            }
+        }
+        for(int i=0; i< a.length; i++){
+            System.out.print(a[i]+ " ");
+        }
+    }
+	
+	
+	
+3. Selection Sort
+private static void selectionSort(int[] a) {
+        int min=0, temp=0;
+        for(int i =0;i<a.length;i++){
+            min=i;
+            for(int j=i+1;j< a.length;j++){
+                if(a[j]<a[min]){
+                    min=j;
+                }
+                temp=a[i];
+                a[i]=a[min];
+                a[min]=temp;
+            }
+        }
+        for(int i=0; i< a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+	
+	
+4. Insertion Sort
+private static void insertionSort(int[] a) {
+        int temp, j;
+        for (int i = 1; i < a.length; i++) {
+            temp = a[i];
+            j = i;
+            while (j > 0 && a[j - 1] > temp) {
+                a[j] = a[j - 1];
+                j = j - 1;
+            }
+            a[j] = temp;
+        }
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
+
+5. Kadane's Algorithm
+private static void maxSubArraySum(int[] a) {
+        int maxSum = 0;
+        int curSum = 0;
+        for (int i = 0; i < a.length; i++) {
+            curSum += a[i];
+            if (curSum > maxSum) {
+                maxSum = curSum;
+            }
+            if (curSum < 0) {
+                curSum = 0;
+            }
+        }
+        System.out.println(maxSum);
+    }
