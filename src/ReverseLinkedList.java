@@ -16,7 +16,7 @@ public class ReverseLinkedList {
         }
     }
 
-    private static Node reverseLinkedList(Node head) {
+    public static Node reverseLinkedList(Node head) {
         Node tempNode = null;
         while (head != null) {
             Node temp = head.next;      //Making a temp node and pointing it to next of head
