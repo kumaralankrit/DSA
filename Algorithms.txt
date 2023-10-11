@@ -24,6 +24,7 @@ public class BinarySearchAlgo {
     }
 }
 
+
 2. Kadane's Algorithm
 private static void maxSubArraySum(int[] a) {
         int maxSum = 0;
@@ -39,6 +40,7 @@ private static void maxSubArraySum(int[] a) {
         }
         System.out.println(maxSum);
     }
+
 
 3. BFS (Breadth First Search) of Binary Tree
     public void printLevelOrder(Node root)
@@ -56,6 +58,26 @@ private static void maxSubArraySum(int[] a) {
             }
         }
     }
+
+//Second Method (BFS)
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        List<List<Integer>> list = new LinkedList<List<Integer>>();
+        if(root == null) return list;
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int levelNum = queue.size();
+            List<Integer> subList = new LinkedList<Integer>();
+            for(int i=0; i<levelNum; i++){
+                if(queue.peek().left != null) queue.offer(queue.peek().left);
+                if(queue.peek().right != null) queue.offer(queue.peek().right);
+                subList.add(queue.poll().val);
+            }
+            list.add(subList);
+        }
+        return list;
+    }
+
 
 4. Bubble Sort
 private static void bubbleSort(int[] a) {
@@ -79,8 +101,7 @@ private static void bubbleSort(int[] a) {
         }
     }
 	
-	
-	
+
 5. Selection Sort
 private static void selectionSort(int[] a) {
         int min=0, temp=0;
@@ -99,8 +120,8 @@ private static void selectionSort(int[] a) {
             System.out.print(a[i] + " ");
         }
     }
-	
-	
+
+
 6. Insertion Sort
 private static void insertionSort(int[] a) {
         int temp, j;
