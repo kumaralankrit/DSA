@@ -24,9 +24,40 @@ public class BinarySearchAlgo {
     }
 }
 
+2. Kadane's Algorithm
+private static void maxSubArraySum(int[] a) {
+        int maxSum = 0;
+        int curSum = 0;
+        for (int i = 0; i < a.length; i++) {
+            curSum += a[i];
+            if (curSum > maxSum) {
+                maxSum = curSum;
+            }
+            if (curSum < 0) {
+                curSum = 0;
+            }
+        }
+        System.out.println(maxSum);
+    }
 
+3. BFS (Breadth First Search) of Binary Tree
+    public void printLevelOrder(Node root)
+    {
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node tempNode = queue.poll();
+            System.out.print(tempNode.data + " ");
+            if (tempNode.left != null) {
+                queue.add(tempNode.left);
+            }
+            if (tempNode.right != null) {
+                queue.add(tempNode.right);
+            }
+        }
+    }
 
-2. Bubble Sort
+4. Bubble Sort
 private static void bubbleSort(int[] a) {
         int temp;
         for(int i=0; i< a.length; i++){
@@ -50,7 +81,7 @@ private static void bubbleSort(int[] a) {
 	
 	
 	
-3. Selection Sort
+5. Selection Sort
 private static void selectionSort(int[] a) {
         int min=0, temp=0;
         for(int i =0;i<a.length;i++){
@@ -70,7 +101,7 @@ private static void selectionSort(int[] a) {
     }
 	
 	
-4. Insertion Sort
+6. Insertion Sort
 private static void insertionSort(int[] a) {
         int temp, j;
         for (int i = 1; i < a.length; i++) {
@@ -87,19 +118,3 @@ private static void insertionSort(int[] a) {
         }
     }
 
-
-5. Kadane's Algorithm
-private static void maxSubArraySum(int[] a) {
-        int maxSum = 0;
-        int curSum = 0;
-        for (int i = 0; i < a.length; i++) {
-            curSum += a[i];
-            if (curSum > maxSum) {
-                maxSum = curSum;
-            }
-            if (curSum < 0) {
-                curSum = 0;
-            }
-        }
-        System.out.println(maxSum);
-    }
