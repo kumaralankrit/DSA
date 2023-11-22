@@ -1,38 +1,34 @@
 public class SortArrayOf0s1sAnd2s_DNF_Algo {
     public static void main(String[] args) {
-        int a[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
-        sortArray(a);
-        for (int print : a) {
+        int arr[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        sortArray(arr);
+        for (int print : arr) {
             System.out.print(print + " ");
         }
     }
 
-    private static void sortArray(int[] a) {
+    private static void sortArray(int[] arr) {
         //Dutch National Flag Algorithm
         int lo = 0;
-        int hi = a.length - 1;
+        int high = arr.length - 1;
         int mid = 0;
         int temp;
-        while (mid <= hi) {
-            switch (a[mid]) {
-                case 0: {
-                    temp = a[lo];
-                    a[lo] = a[mid];
-                    a[mid] = temp;
-                    lo++;
-                    mid++;
-                    break;
-                }
-                case 1:
-                    mid++;
-                    break;
-                case 2: {
-                    temp = a[mid];
-                    a[mid] = a[hi];
-                    a[hi] = temp;
-                    hi--;
-                    break;
-                }
+        while (mid <= high) {
+            if(arr[mid]==0){
+                temp = arr[lo];
+                arr[lo] = arr[mid];
+                arr[mid] = temp;
+                lo++;
+                mid++;
+            }
+            else if (arr[mid]==1){
+                mid++;
+            }
+            else {
+                temp = arr[mid];
+                arr[mid] = arr[high];
+                arr[high] = temp;
+                high--;
             }
         }
     }
