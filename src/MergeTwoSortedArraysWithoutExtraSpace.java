@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MergeTwoSortedArraysWithoutExtraSpace {
     public static void main(String[] args) {
         int arr1[] = {1, 4, 7, 8, 10};
@@ -13,18 +15,20 @@ public class MergeTwoSortedArraysWithoutExtraSpace {
     }
 
     private static void withoutExtraSpace(int[] arr1, int[] arr2) {
-        int i, k;
-        for (i = 0; i < arr1.length; i++) {
-            if (arr1[i] > arr2[0]) {
-                int temp = arr1[i];
-                arr1[i] = arr2[0];
-                arr2[0] = temp;
+        int left = arr1.length - 1;
+        int right = 0;
+        while (left > 0 && right < arr2.length) {
+            if (arr1[left] > arr2[right]) {
+                int temp = arr1[left];
+                arr1[left] = arr2[right];
+                arr2[right] = temp;
+                left--;
+                right++;
+            } else {
+                break;
             }
-            int first = arr2[0];
-            for (k = 1; k < arr2.length && arr2[k] < first; k++) {
-                arr2[k - 1] = arr2[k];
-            }
-            arr2[k - 1] = first;
         }
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
     }
 }
