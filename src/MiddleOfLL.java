@@ -10,16 +10,16 @@ public class MiddleOfLL {
         head.next.next.next.next.next = new Node(6);
 
         Node middleNode = middleElementOfLL(head);
-        System.out.println(middleNode.data+" ");
+        System.out.println(middleNode.data + " ");
     }
 
     //Tortoise Hare Approach
     private static Node middleElementOfLL(Node head) {
         Node slow = head;
         Node fast = head;
-        while(fast!=null&&slow!=null){
-            slow=slow.next;
-            fast=fast.next.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return slow;
     }
