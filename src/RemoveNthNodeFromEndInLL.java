@@ -23,6 +23,8 @@ public class RemoveNthNodeFromEndInLL {
         for (int i = 1; i <= n; i++) {
             fast = fast.next;
         }
+        if (fast == null)
+            return head.next;
         while (fast.next != null) {
             slow = slow.next;
             fast = fast.next;
