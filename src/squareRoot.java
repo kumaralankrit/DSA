@@ -1,6 +1,6 @@
 public class squareRoot {
     public static void main(String[] args) {
-        int number = 99;
+        int number = 16;
         System.out.println(sqRoot(number));
     }
 
