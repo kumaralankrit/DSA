@@ -16,15 +16,14 @@ public class BFS {
         adj.get(1).add(3);
         adj.get(3).add(1);
 
-        BFS sl = new BFS();
-        ArrayList<Integer> ans = sl.bfsOfGraph(5, adj);
+        ArrayList<Integer> ans = bfsOfGraph(5, adj);
         int n = ans.size();
         for (int i = 0; i < n; i++) {
             System.out.print(ans.get(i) + " ");
         }
     }
 
-    public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+    public static ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> bfs = new ArrayList<>();
         boolean visited[] = new boolean[V];
         Queue<Integer> q = new LinkedList<>();
